@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Comments - HTML Injection Lab</title>
+</head>
+<body>
+<h1>Comments</h1>
+<form method="post" action="/comments">
+<input name="name" placeholder="Your name">
+<textarea name="comment" placeholder="Write something"></textarea>
+<button>Post</button>
+</form>
+<hr>
+<ul>
+<% comments.forEach(c => { %>
+<li>
+<strong><%= c.name %></strong> — <em><%= new Date(c.ts).toISOString() %></em>
+<div><%= c.comment %></div>
+</li>
+<% }) %>
+</ul>
+</body>
+</html>
